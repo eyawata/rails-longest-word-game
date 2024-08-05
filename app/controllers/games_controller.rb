@@ -22,6 +22,8 @@ class GamesController < ApplicationController
     @letters_arr = params[:letters].split(" ")
     @word_arr = params[:word].upcase.split("")
     # The word can’t be built out of the original grid ❌
+    # The word is valid according to the grid, but is not a valid English word ❌
+    # The word is valid according to the grid and is an English word ✅
     if @word_arr.all? { |letter| @letters_arr.include?(letter) }
       @score = "#{params[:word]} was built from array!!!"
       result = URI.open("https://dictionary.lewagon.com/#{params[:word]}").read
@@ -34,7 +36,5 @@ class GamesController < ApplicationController
     else
       @score = "`#{params[:word]}` was not built from array!!!"
     end
-    # The word is valid according to the grid, but is not a valid English word ❌
-    # The word is valid according to the grid and is an English word ✅
   end
 end
