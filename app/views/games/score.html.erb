@@ -6,6 +6,9 @@
 </ul>
 <div class="user">
   <p>Your word was: <%=params[:word]%></p>
-  <p> <%= @score %> </p>
+  <p> <%= @message %> </p>
 </div>
-<span><%= link_to "Play Again", "new_path" %></span>
+<div class="score">
+  <p>Your score is <%= @score %></p>
+</div>
+<span><%= link_to "Play Again", new_path(session[:score]) %></span>
