@@ -1,0 +1,11 @@
+<h1>Result</h1>
+<ul class="letters">
+  <% @letters_arr.each do |letter| %>
+  <li><%= letter %></li>
+  <% end %>
+</ul>
+<div class="user">
+  <p>Your word was: <%=params[:word]%></p>
+  <p> <%= @score %> </p>
+</div>
+<span><%= link_to "Play Again", "new_path" %></span>
