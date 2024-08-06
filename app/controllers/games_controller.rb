@@ -1,6 +1,7 @@
 require "open-uri"
 
 class GamesController < ApplicationController
+  before_action :set_score, :set_letters
   def new
     letter = ('a'..'z').to_a
     @letters = Array.new(10) { letter.sample.upcase }
